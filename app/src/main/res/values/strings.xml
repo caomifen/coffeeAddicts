@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Hallo</string>
+    <string name="title_home">Home</string>
+    <string name="title_reminder">Reminder</string>
+    <string name="title_todolist">To do list</string>
+    <string name="title_settings">Settings</string>
+</resources>
