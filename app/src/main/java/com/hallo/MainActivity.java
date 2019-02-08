@@ -1,5 +1,7 @@
 package com.hallo;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -9,8 +11,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
-
-
+    public static String PARAM_PHONE_NUMBER = "PHONE_NUMBER";
+    public static String PARAM_REMEMBER_PHONE_NUMBER = "REMEMBER_PHONE_NUMBER";
+    Context mcontext;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -45,6 +48,15 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        mcontext = getApplicationContext();
+        PersistentStore store = PersistentStore.getInstance(mcontext);
+
+        if(store.getPhoneNumber() == ""){
+            Intent intent = new Intent(mcontext, SignupActivity.class);
+            startActivity(intent);
+        } else {
+            //load home page
+        }
     }
 
 }
