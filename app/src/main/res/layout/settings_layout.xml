@@ -13,7 +13,7 @@
         android:layout_height="414dp"
         android:gravity="center"
         android:paddingTop="25sp"
-        android:text="Test Test Test"
+        android:text="Settings"
         android:textSize="25sp" />
     <Spinner
         android:id="@+id/spinner1"

@@ -46,19 +46,19 @@ public class SettingsFragment extends Fragment {
                     Toast.makeText(parent.getContext(),
                             "You have selected English", Toast.LENGTH_SHORT)
                             .show();
-                    setLocale("ta");
+                    setLocale("en");
                 } else if (pos == 2) {
 
                     Toast.makeText(parent.getContext(),
                             "You have selected Chinese", Toast.LENGTH_SHORT)
                             .show();
-                    setLocale("hi");
+                    setLocale("zh");
                 } else if (pos == 3) {
 
                     Toast.makeText(parent.getContext(),
                             "You have selected Malay", Toast.LENGTH_SHORT)
                             .show();
-                    setLocale("en");
+                    setLocale("ms");
                 }
 
             }
@@ -85,7 +85,7 @@ public class SettingsFragment extends Fragment {
         Configuration conf = res.getConfiguration();
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
-        Intent refresh = new Intent(mcontext, SettingsFragment.class);
+        Intent refresh = new Intent(mcontext, MainActivity.class);
         startActivity(refresh);
     }
 
