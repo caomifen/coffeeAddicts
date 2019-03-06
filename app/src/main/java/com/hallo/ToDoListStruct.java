@@ -69,6 +69,16 @@ public class ToDoListStruct {
 
         }
     }
+    public void addNewItemToList(String name, Boolean value){
+        try {
+            item = new JSONObject();
+            item.put(item_name,  name);
+            item.put(item_value, value);
+            list.put(item);
+        } catch (JSONException e){
+
+        }
+    }
     public void updateItemValueByIndex(int index, boolean newValue){
         try {
             item = new JSONObject();

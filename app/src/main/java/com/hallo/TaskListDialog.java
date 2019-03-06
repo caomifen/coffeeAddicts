@@ -19,13 +19,15 @@ public class TaskListDialog extends Dialog implements DialogInterface.OnClickLis
         OnDialogClickListener mlistener;
         ToDoListStruct toDoListStruct;
         PersistentStore store;
+        int position;
 
-public TaskListDialog(@NonNull Context context, ToDoListStruct todo_struct, PersistentStore _store, OnDialogClickListener listener) {
+public TaskListDialog(@NonNull Context context,int pos, ToDoListStruct todo_struct, PersistentStore _store, OnDialogClickListener listener) {
         super(context);
         this.mContext = context;
         this.mlistener = listener;
         this.toDoListStruct = todo_struct;
         this.store = _store;
+        this.position = pos;
         }
 
 public interface OnDialogClickListener {
@@ -50,7 +52,12 @@ public interface OnDialogClickListener {
         TextView tv_title = findViewById(R.id.tvtodolistviewtitle);
         tv_title.setText(toDoListStruct.getTitle());
         ListView lvTask = findViewById(R.id.lvTasks);
-        ToDoListTaskBaseAdapter TaskAdapter = new ToDoListTaskBaseAdapter(mContext, toDoListStruct, store);
+        ToDoListTaskBaseAdapter TaskAdapter = new ToDoListTaskBaseAdapter(mContext, position, toDoListStruct, store, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mlistener.notifyDataChange();
+            }
+        });
         lvTask.setAdapter(TaskAdapter);
 
         Button cancel = findViewById(R.id.btnCancel);

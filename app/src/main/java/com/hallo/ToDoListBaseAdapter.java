@@ -65,6 +65,7 @@ public class ToDoListBaseAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.todolist_item, null);
             viewHolder.position = position;
             viewHolder.tvToDoListItem_Title = convertView.findViewById(R.id.tvToDoListItemTitle);
+            viewHolder.ivToDoListItem_Edit = convertView.findViewById(R.id.iv_ToDoList_Item_Edit);
             viewHolder.tvToDoListItem_Tasks = convertView.findViewById(R.id.tvToDoListItemTasks);
             viewHolder.ivToDoListItem_delete = convertView.findViewById(R.id.ivToDoListItem_Delete);
             result = convertView;
@@ -76,6 +77,7 @@ public class ToDoListBaseAdapter extends BaseAdapter {
         try{
             JSONObject TaskObject = mlist.getJSONObject(viewHolder.position);
             ToDoListStruct todo = new ToDoListStruct(TaskObject);
+            viewHolder.obj = todo;
 
             viewHolder.tvToDoListItem_Title.setText(todo.getTitle());
             viewHolder.tvToDoListItem_Tasks.setText(todo.getTaskStatus());
@@ -94,6 +96,21 @@ public class ToDoListBaseAdapter extends BaseAdapter {
             }
         });
 
+        viewHolder.ivToDoListItem_Edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditListDialog dialog = new EditListDialog(mContext, viewHolder.position, viewHolder.obj, new EditListDialog.OnDialogClickListener() {
+                    @Override
+                    public void notifyToDoDataChange() {
+                        mlist = store.getToDoList();
+                        notifyDataSetChanged();
+                    }
+                });
+                dialog.show();
+            }
+        });
+
+
         return result;
     }
 
@@ -102,9 +119,11 @@ public class ToDoListBaseAdapter extends BaseAdapter {
      */
     static class ViewHolder{
         int position;
+        ToDoListStruct obj;
         TextView tvToDoListItem_Title;
         TextView tvToDoListItem_Tasks;
         ImageView ivToDoListItem_delete;
+        ImageView ivToDoListItem_Edit;
 
 
     }

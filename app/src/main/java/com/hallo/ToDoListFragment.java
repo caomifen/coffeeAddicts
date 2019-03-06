@@ -84,14 +84,13 @@ public class ToDoListFragment extends ListFragment implements AdapterView.OnItem
                 getListView().setVisibility(View.INVISIBLE);
             }
             setListAdapter(ListAdapter);
-            getListView().setOnItemClickListener(this);
         }
     }
 
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        //Snackbar.make(view, "onItemClick", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+        Snackbar.make(view, "onItemClick", Snackbar.LENGTH_LONG).setAction("Action", null).show();
     }
 
     @Override
@@ -101,7 +100,7 @@ public class ToDoListFragment extends ListFragment implements AdapterView.OnItem
 
             JSONArray list = store.getToDoList();
             JSONObject selectedObject = list.getJSONObject(position);
-            TaskListDialog tdialog = new TaskListDialog(mContext, new ToDoListStruct(selectedObject), store, new TaskListDialog.OnDialogClickListener() {
+            TaskListDialog tdialog = new TaskListDialog(mContext, position, new ToDoListStruct(selectedObject), store, new TaskListDialog.OnDialogClickListener() {
                 @Override
                 public void notifyDataChange() {
                     refreshData();

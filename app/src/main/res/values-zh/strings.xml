@@ -12,6 +12,9 @@
     <string name="todolist_titlehint">Title of list</string>
     <string name="todolist_adddialogheader">Add Todo list</string>
     <string name="todolist_updatedialogheader">Todo list</string>
+    <string name="todolist_editdialogheader">Edit Todo list</string>
+
+    <string name="close">Close</string>
     <string-array name="languages">
         <item>选择语言</item>
         <item>English</item>
