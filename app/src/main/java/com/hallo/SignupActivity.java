@@ -39,7 +39,7 @@ public class SignupActivity extends Activity {
                     if(cbRememberMe.isChecked()){
                         Remember = "1";
                     }
-                    store.writePhoneNumber(Integer.toString(phoneNumber));
+                    store.saveUser(Integer.toString(phoneNumber), Remember);
                     Intent intent = new Intent(context, MainActivity.class);
                     intent.putExtra(PARAM_PHONE_NUMBER, phoneNumber);
                     intent.putExtra(PARAM_REMEMBER_PHONE_NUMBER, Remember);
@@ -52,7 +52,7 @@ public class SignupActivity extends Activity {
         btnSignUpContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                store.writePhoneNumber("0");
+                store.saveUser("0", "0");
                 Intent intent = new Intent(context, MainActivity.class);
                 intent.putExtra(PARAM_PHONE_NUMBER, "0");
                 startActivity(intent);
