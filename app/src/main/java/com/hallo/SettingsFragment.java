@@ -75,7 +75,7 @@ public class SettingsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return inflater.inflate(R.layout.settings_layout, container, false);
     }
-
+    @SuppressWarnings("deprecation")
     public void setLocale(String lang) {
 
         myLocale = new Locale(lang);
