@@ -1,0 +1,105 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".AddReminderActivity">
+
+    <TextView
+        android:id="@+id/nameTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="27dp"
+        android:padding="5dp"
+        android:text="Name Of Reminder"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameTxt"
+        android:id="@+id/title"
+        android:inputType=""
+        android:textAppearance="?android:attr/textAppearanceLarge"  />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:text="DATE"
+        android:id="@+id/in_date"
+        android:layout_marginTop="40dp"
+        android:inputType=""
+        android:layout_toRightOf="@+id/dateimg"
+        android:textAppearance="?android:attr/textAppearanceLarge"  />
+
+    <ImageView
+        android:id="@+id/dateimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/title"
+        android:src="@drawable/round_date_range_black_24dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT DATE"
+        android:id="@+id/btn_date"
+        android:layout_alignBottom="@+id/in_date"
+        android:layout_toRightOf="@+id/in_date"
+        android:layout_toEndOf="@+id/in_date" />
+
+    <TextView
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/in_date"
+        android:text="TIME"
+        android:id="@+id/in_time"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/timeimg"
+        android:inputType=""
+        android:textAppearance="?android:attr/textAppearanceLarge"  />
+
+    <ImageView
+        android:id="@+id/timeimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/in_date"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/round_access_time_black_24dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SELECT TIME"
+        android:id="@+id/btn_time"
+        android:layout_alignBottom="@+id/in_time"
+        android:layout_toRightOf="@+id/in_time"
+        android:layout_toEndOf="@+id/in_time" />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="43dp"
+        android:text="Add Reminder"
+        android:textAppearance="?android:attr/textAppearanceLarge"  />
+
+    <ImageView
+        android:id="@+id/repeatimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/in_time"
+        android:src="@drawable/round_refresh_black_24dp" />
+
+</RelativeLayout>
