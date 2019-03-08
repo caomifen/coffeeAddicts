@@ -14,6 +14,15 @@
     <string name="todolist_updatedialogheader">Todo list</string>
     <string name="todolist_editdialogheader">Edit Todo list</string>
 
+    <string name="reminderlist_emptylist">没有提醒</string>
+    <string name="reminderlist_repeatmon">星期一</string>
+    <string name="reminderlist_repeattue">星期二</string>
+    <string name="reminderlist_repeatwed">星期三</string>
+    <string name="reminderlist_repeatthu">星期四</string>
+    <string name="reminderlist_repeatfri">星期五</string>
+    <string name="reminderlist_repeatsat">星期六</string>
+    <string name="reminderlist_repeatsun">星期日</string>
+
     <string name="close">Close</string>
     <string-array name="languages">
         <item>Pilih Bahasa</item>

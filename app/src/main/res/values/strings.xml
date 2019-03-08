@@ -14,6 +14,14 @@
     <string name="todolist_updatedialogheader">Todo list</string>
     <string name="todolist_editdialogheader">Edit Todo list</string>
 
+    <string name="reminderlist_emptylist">No Reminders</string>
+    <string name="reminderlist_repeatmon">Monday</string>
+    <string name="reminderlist_repeattue">Tuesday</string>
+    <string name="reminderlist_repeatwed">Wednesday</string>
+    <string name="reminderlist_repeatthu">Thursday</string>
+    <string name="reminderlist_repeatfri">Friday</string>
+    <string name="reminderlist_repeatsat">Saturday</string>
+    <string name="reminderlist_repeatsun">Sunday</string>
     <string name="close">Close</string>
 
     <string-array name="languages">

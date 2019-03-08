@@ -22,11 +22,13 @@ public class PersistentStore {
     private static final PersistentStore INSTANCE = new PersistentStore();
     private static final String UserStore = "User.txt";
     private static final String ToDoListStore = "ToDoList.txt";
+    private static final String ReminderListStore = "ReminderList.txt";
 
     private static String param_phone_number = "Phone_number";
     private static String param_remember_me = "Phone_number";
 
     private static JSONArray ToDoList;
+    private static JSONArray ReminderList;
     private static JSONObject User; //User has 2 fields with keys: param_phone_number and param_remember_me
 
     /**
@@ -49,6 +51,7 @@ public class PersistentStore {
         }
 
         ToDoList = LoadArrayStoreFile(ToDoListStore);
+        ReminderList = LoadArrayStoreFile(ReminderListStore);
         return INSTANCE;
     }
 
@@ -91,6 +94,15 @@ public class PersistentStore {
     public void saveToDoList(JSONArray newList){
         SaveStoreFile(newList, ToDoListStore);
         ToDoList = newList;
+    }
+
+    //ReminderList functions
+    public JSONArray getReminderList(){
+        return ReminderList;
+    }
+    public void saveReminderList(JSONArray newList){
+        SaveStoreFile(newList, ReminderListStore);
+        ReminderList = newList;
     }
 
     //others/general functions
