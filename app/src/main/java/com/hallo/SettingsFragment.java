@@ -21,12 +21,15 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.content.SharedPreferences;
 
 public class SettingsFragment extends Fragment {
 
     Spinner spinnerctrl;
     Button btn;
     Locale myLocale;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
 
     public static SettingsFragment newInstance(){
         SettingsFragment fragment = new SettingsFragment();
@@ -35,6 +38,14 @@ public class SettingsFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        pref = getContext().getSharedPreferences("MY_PREF", Context.MODE_PRIVATE);
+        editor = pref.edit();
+        if (pref.getString("Language", null) != null) {
+            pref.getString("Language", null);
+        } else {
+            editor.putString("Language", "en");
+            editor.apply();
+        }
         spinnerctrl = (Spinner) view.findViewById(R.id.spinner1);
         spinnerctrl.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -46,18 +57,24 @@ public class SettingsFragment extends Fragment {
                     Toast.makeText(parent.getContext(),
                             "You have selected English", Toast.LENGTH_SHORT)
                             .show();
+                    editor.putString("Language", "en");
+                    editor.apply();
                     setLocale("en");
                 } else if (pos == 2) {
 
                     Toast.makeText(parent.getContext(),
                             "You have selected Chinese", Toast.LENGTH_SHORT)
                             .show();
+                    editor.putString("Language", "zh");
+                    editor.apply();
                     setLocale("zh");
                 } else if (pos == 3) {
 
                     Toast.makeText(parent.getContext(),
                             "You have selected Malay", Toast.LENGTH_SHORT)
                             .show();
+                    editor.putString("Language", "ms");
+                    editor.apply();
                     setLocale("ms");
                 }
 
