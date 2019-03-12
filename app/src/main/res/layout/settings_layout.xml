@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/greet"
         android:layout_width="fill_parent"
-        android:layout_height="414dp"
+        android:layout_height="50dp"
         android:gravity="center"
         android:paddingTop="25sp"
         android:text="Settings"
@@ -22,4 +22,6 @@
         android:entries="@array/languages"
         android:gravity="center"
         android:paddingTop="25sp" />
+
+
 </LinearLayout>
