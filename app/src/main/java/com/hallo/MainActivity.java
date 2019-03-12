@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mcontext = getApplicationContext();
         pref = getApplicationContext().getSharedPreferences("MY_PREF", Context.MODE_PRIVATE);
         editor = pref.edit();
-        if (pref.getString("Language","") != null) {
+        if (pref.getString("Language",null) != null) {
             language = pref.getString("Language", null);
         } else {
             editor.putString("Language", "en");
