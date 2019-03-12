@@ -169,6 +169,7 @@ public class AddReminderActivity extends ListActivity {
 
     public void refreshReminderData(){
         if(this != null) {
+            store = PersistentStore.getInstance(this);
             JSONArray remList = store.getReminderList();
             ListAdapter = new ReminderListAdapter(this, remList, store);
             if(remList.length()>0){
