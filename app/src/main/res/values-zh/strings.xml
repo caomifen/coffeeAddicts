@@ -1,27 +1,27 @@
 <resources>
     <string name="app_name">Hallo</string>
-    <string name="title_home">Home</string>
-    <string name="title_reminder">Reminder</string>
-    <string name="title_todolist">To do list</string>
-    <string name="title_settings">Settings</string>
-    <string name="todolist_emptylist">Nothing to do</string>
-    <string name="todolist_cancel">Cancel</string>
-    <string name="todolist_save">Save</string>
-    <string name="todolist_title">Title</string>
-    <string name="todolist_listhint">each line is a todo item</string>
-    <string name="todolist_titlehint">Title of list</string>
-    <string name="todolist_adddialogheader">Add Todo list</string>
+    <string name="title_home">主页</string>
+    <string name="title_reminder">提醒</string>
+    <string name="title_todolist">行事表</string>
+    <string name="title_settings">设置</string>
+    <string name="todolist_emptylist">没事做</string>
+    <string name="todolist_cancel">取消</string>
+    <string name="todolist_save">保存</string>
+    <string name="todolist_title">标题</string>
+    <string name="todolist_listhint">每一行是一个任务项目</string>
+    <string name="todolist_titlehint">名单标题</string>
+    <string name="todolist_adddialogheader">添加Todo列表</string>
     <string name="todolist_updatedialogheader">Todo list</string>
     <string name="todolist_editdialogheader">Edit Todo list</string>
 
-    <string name="reminderlist_emptylist">No Reminders</string>
-    <string name="reminderlist_repeatmon">Monday</string>
-    <string name="reminderlist_repeattue">Tuesday</string>
-    <string name="reminderlist_repeatwed">Wednesday</string>
-    <string name="reminderlist_repeatthu">Thursday</string>
-    <string name="reminderlist_repeatfri">Friday</string>
-    <string name="reminderlist_repeatsat">Saturday</string>
-    <string name="reminderlist_repeatsun">Sunday</string>
+    <string name="reminderlist_emptylist">没有提醒</string>
+    <string name="reminderlist_repeatmon">星期一</string>
+    <string name="reminderlist_repeattue">星期二</string>
+    <string name="reminderlist_repeatwed">星期三</string>
+    <string name="reminderlist_repeatthu">星期四</string>
+    <string name="reminderlist_repeatfri">星期五</string>
+    <string name="reminderlist_repeatsat">星期六</string>
+    <string name="reminderlist_repeatsun">星期日</string>
 
     <string name="close">Close</string>
     <string-array name="languages">
