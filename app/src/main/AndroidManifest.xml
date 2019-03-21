@@ -25,6 +25,11 @@
         <activity
             android:name=".SignupActivity"
             android:label="signup"></activity>
+
+        <receiver
+            android:name=".NotificationAlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>

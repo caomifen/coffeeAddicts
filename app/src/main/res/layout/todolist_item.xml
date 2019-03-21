@@ -22,11 +22,9 @@
         android:id="@+id/tvToDoListItemTasks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvToDoListItemTitle" />
 
@@ -34,10 +32,8 @@
         android:id="@+id/ivToDoListItem_Delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginTop="11dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_delete_forever_black_24dp" />
@@ -46,11 +42,89 @@
         android:id="@+id/iv_ToDoList_Item_Edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="22dp"
         android:layout_marginEnd="5dp"
         android:layout_marginTop="22dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/ivToDoListItem_Delete"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_edit_black_24dp" />
+
+    <Switch
+        android:id="@+id/switchlistItemNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toRightOf="@+id/llyRepeatholder"
+        app:layout_constraintTop_toBottomOf="@+id/tvToDoListItemTasks" />
+
+    <LinearLayout
+        android:id="@+id/llyRepeatholder"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvToDoListItemTasks"
+        app:layout_constraintLeft_toRightOf="@+id/tvlistItemTime">
+
+        <TextView
+            android:id="@+id/tvMon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="M" />
+        <TextView
+            android:id="@+id/tvTue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="T" />
+        <TextView
+            android:id="@+id/tvWed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="W" />
+        <TextView
+            android:id="@+id/tvThu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="T" />
+        <TextView
+            android:id="@+id/tvFri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="F" />
+        <TextView
+            android:id="@+id/tvSat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="S" />
+        <TextView
+            android:id="@+id/tvSun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="S" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvlistItemTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvToDoListItemTasks" />
 </android.support.constraint.ConstraintLayout>

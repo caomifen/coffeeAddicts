@@ -12,20 +12,25 @@ public class ToDoListStruct {
     private String title;
     private JSONArray list;
     private JSONObject item;
+    private NotificationStruct notification;
+
     public static String item_name = "ITEM_NAME";
     public static String item_value = "ITEM_VALUE";
     private String param_title = "TITLE";
     private String param_list = "LIST";
+    private String param_notification = "NOTIFICATION";
 
     public ToDoListStruct(String _title){
         this.title = _title;
         this.list = new JSONArray();
+        this.notification = new NotificationStruct();
     }
     public ToDoListStruct(JSONObject todoObject){
         item = todoObject;
         try {
             this.title = item.getString(param_title);
             this.list = item.getJSONArray(param_list);
+            this.notification = new NotificationStruct(item.getJSONObject(param_notification));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -51,6 +56,12 @@ public class ToDoListStruct {
     }
     public void setTitle(String _title){
         this.title = _title;
+    }
+    public NotificationStruct getNotification(){
+        return notification;
+    }
+    public void setNotification(NotificationStruct _notification){
+        notification = _notification;
     }
     public JSONArray getList(){
         return list;
@@ -107,6 +118,7 @@ public class ToDoListStruct {
         try {
             export.put(param_title, title);
             export.put(param_list, list);
+            export.put(param_notification, notification.getExportJSONObject());
         } catch (JSONException e) {
             e.printStackTrace();
         }

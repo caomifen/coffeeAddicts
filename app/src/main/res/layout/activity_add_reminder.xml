@@ -1,96 +1,204 @@
-<RelativeLayout
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<android.support.constraint.ConstraintLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".AddReminderActivity">
 
-    <ListView
-        android:id="@android:id/list"
-        android:background="@android:color/white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="invisible">
-    </ListView>
-
-    <TextView
-        android:id="@+id/nameTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="27dp"
-        android:padding="5dp"
-        android:text="Name Of Reminder"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
     <EditText
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/nameTxt"
         android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="name of reminder"
         android:inputType=""
-        android:textAppearance="?android:attr/textAppearanceLarge"  />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/lineNotification"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
     <TextView
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:text="DATE"
-        android:id="@+id/in_date"
-        android:layout_marginTop="40dp"
-        android:inputType=""
-        android:layout_toRightOf="@+id/dateimg"
-        android:textAppearance="?android:attr/textAppearanceLarge"  />
-
-    <ImageView
-        android:id="@+id/dateimg"
+        android:id="@+id/tvAddReminderNotificationtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/title"
-        android:src="@drawable/round_date_range_black_24dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:text="Remind me"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineNotification" />
 
-    <Button
+    <Switch
+        android:id="@+id/switchaddReminderNotification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SELECT DATE"
-        android:id="@+id/btn_date"
-        android:layout_alignBottom="@+id/in_date"
-        android:layout_toRightOf="@+id/in_date"
-        android:layout_toEndOf="@+id/in_date" />
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineNotification" />
+    <View
+        android:id="@+id/lineAfterSwitchNotification"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchaddReminderNotification" />
 
     <TextView
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/in_date"
-        android:text="TIME"
-        android:id="@+id/in_time"
-        android:layout_marginTop="40dp"
-        android:layout_toRightOf="@+id/timeimg"
-        android:inputType=""
-        android:textAppearance="?android:attr/textAppearanceLarge"  />
-
-    <ImageView
-        android:id="@+id/timeimg"
+        android:id="@+id/tvAddReminderNotificationSummary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/in_date"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/round_access_time_black_24dp" />
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:text="mon.."
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineAfterSwitchNotification" />
 
-    <Button
+    <TimePicker
+        android:id="@+id/tpAddReminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SELECT TIME"
-        android:id="@+id/btn_time"
-        android:layout_alignBottom="@+id/in_time"
-        android:layout_toRightOf="@+id/in_time"
-        android:layout_toEndOf="@+id/in_time" />
+        android:timePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivAddSelectDate">
+    </TimePicker>
+
+    <View
+        android:id="@+id/lineAfterTimePickerNotification"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tpAddReminder" />
+
+    <TextView
+        android:id="@+id/tvAddReminderRepeatTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:text="Repeat every:"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineAfterTimePickerNotification" />
+    <CheckedTextView
+        android:id="@+id/repeat_mon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Mon"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintStart_toEndOf="@+id/repeat_tue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddReminderRepeatTitle" />
+    <CheckedTextView
+        android:id="@+id/repeat_tue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Tue"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintStart_toEndOf="@+id/repeat_mon"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddReminderRepeatTitle" />
+    <CheckedTextView
+        android:id="@+id/repeat_wed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Wed"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintStart_toEndOf="@+id/repeat_tue"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddReminderRepeatTitle" />
+    <CheckedTextView
+        android:id="@+id/repeat_thu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Thu"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintStart_toEndOf="@+id/repeat_wed"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddReminderRepeatTitle" />
+    <CheckedTextView
+        android:id="@+id/repeat_fri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Fri"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintStart_toEndOf="@+id/repeat_thu"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddReminderRepeatTitle" />
+    <CheckedTextView
+        android:id="@+id/repeat_sat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Sat"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintStart_toEndOf="@+id/repeat_fri"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddReminderRepeatTitle" />
+
+    <CheckedTextView
+        android:id="@+id/repeat_sun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Sun"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/repeat_sat"
+        app:layout_constraintTop_toBottomOf="@+id/tvAddReminderRepeatTitle" />
 
     <Button
         android:id="@+id/submitBtn"
@@ -100,7 +208,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="43dp"
         android:text="Add Reminder"
-        android:textAppearance="?android:attr/textAppearanceLarge"  />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cancelBtn"
+        app:layout_constraintTop_toBottomOf="@+id/repeat_mon"/>
 
     <Button
         android:id="@+id/cancelBtn"
@@ -111,78 +223,23 @@
         android:layout_marginBottom="43dp"
         android:layout_toLeftOf="@+id/submitBtn"
         android:text="Cancel"
-        android:textAppearance="?android:attr/textAppearanceLarge"  />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/submitBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/repeat_mon"/>
 
     <ImageView
-        android:id="@+id/repeatimg"
+        android:id="@+id/ivAddSelectDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/in_time"
-        android:src="@drawable/round_refresh_black_24dp" />
+        android:src="@drawable/round_date_range_black_24dp"
+        tools:layout_editor_absoluteX="328dp"
+        tools:layout_editor_absoluteY="138dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lineAfterSwitchNotification"/>
 
-    <CheckBox
-        android:id="@+id/chkMon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/repeatimg"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="30dp"
-        android:layout_below="@id/in_time"
-        android:text="@string/reminderlist_repeatmon"
-        android:checked="true"  />
-
-    <CheckBox
-        android:id="@+id/chkTue"
-        android:layout_below="@id/chkMon"
-        android:layout_toRightOf="@+id/repeatimg"
-        android:layout_marginLeft="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/reminderlist_repeattue"/>
-
-    <CheckBox
-        android:id="@+id/chkWed"
-        android:layout_toRightOf="@+id/repeatimg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_below="@id/chkTue"
-        android:text="@string/reminderlist_repeatwed" />
-
-    <CheckBox
-        android:id="@+id/chkThu"
-        android:layout_toRightOf="@+id/repeatimg"
-        android:layout_below="@id/chkWed"
-        android:layout_marginLeft="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/reminderlist_repeatthu" />
-
-    <CheckBox
-        android:id="@+id/chkFri"
-        android:layout_toRightOf="@+id/repeatimg"
-        android:layout_below="@id/chkThu"
-        android:layout_width="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:layout_height="wrap_content"
-        android:text="@string/reminderlist_repeatfri" />
-
-    <CheckBox
-        android:id="@+id/chkSat"
-        android:layout_toRightOf="@+id/repeatimg"
-        android:layout_below="@id/chkFri"
-        android:layout_marginLeft="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/reminderlist_repeatsat" />
-
-    <CheckBox
-        android:id="@+id/chkSun"
-        android:layout_toRightOf="@+id/repeatimg"
-        android:layout_below="@id/chkSat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="30dp"
-        android:text="@string/reminderlist_repeatsun" />
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>
+</ScrollView>

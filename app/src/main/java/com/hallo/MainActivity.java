@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.util.Log;
 import android.view.MenuItem;
 
+import org.json.JSONArray;
+
 public class MainActivity extends AppCompatActivity {
     public static String PARAM_PHONE_NUMBER = "PHONE_NUMBER";
     public static String PARAM_REMEMBER_PHONE_NUMBER = "REMEMBER_PHONE_NUMBER";
@@ -53,7 +55,6 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         mcontext = getApplicationContext();
         PersistentStore store = PersistentStore.getInstance(mcontext);
-
         if(store.getPhoneNumber() == ""){
             Intent intent = new Intent(mcontext, SignupActivity.class);
             startActivity(intent);

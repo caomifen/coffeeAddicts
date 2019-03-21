@@ -9,27 +9,21 @@ import java.util.List;
 import static java.lang.Boolean.getBoolean;
 
 public class ReminderListStruct {
-    private String name,date,time,repeat;
-    private JSONObject item;
-    private String param_rname = "Reminder 1";
-    private String param_date = "01-01-2019";
-    private String param_time = "00:00:00";
-    private String param_repeat = "Monday";
+    private String name;
+    private NotificationStruct notification;
 
-    public ReminderListStruct(String _title, String _date, String _time, String _repeat){
+    private String param_rname = "REMINDER";
+    private String param_notification = "NOTIFICATION";
+
+    public ReminderListStruct(String _title, NotificationStruct notification){
         this.name = _title;
-        this.date = _date;
-        this.time = _time;
-        this.repeat = _repeat;
+        this.notification = notification;
     }
 
     public ReminderListStruct(JSONObject remObj){
-        item = remObj;
         try {
-            this.name = item.getString(param_rname);
-            this.date = item.getString(param_date);
-            this.time = item.getString(param_time);
-            this.repeat = item.getString(param_repeat);
+            this.name = remObj.getString(param_rname);
+            this.notification = new NotificationStruct(remObj.getJSONObject(param_notification));
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -42,25 +36,11 @@ public class ReminderListStruct {
         this.name = _name;
     }
 
-    public String getRemDate(){
-        return this.date;
+    public NotificationStruct getNotification() {
+        return notification;
     }
-    public void setRemDate(String _date){
-        this.date = _date;
-    }
-
-    public String getRemTime(){
-        return this.time;
-    }
-    public void setRemTime(String _time){
-        this.time = _time;
-    }
-
-    public String getRemRepeat(){
-        return this.repeat;
-    }
-    public void setRemRepeat(String _repeat){
-        this.repeat = _repeat;
+    public void setNotification(NotificationStruct notification){
+        this.notification = notification;
     }
 
     public JSONObject getExportJSONObject(){
@@ -68,9 +48,7 @@ public class ReminderListStruct {
         JSONObject export = new JSONObject();
         try {
             export.put(param_rname, name);
-            export.put(param_date, date);
-            export.put(param_time, time);
-            export.put(param_repeat, repeat);
+            export.put(param_notification, notification.getExportJSONObject());
         } catch (JSONException e) {
             e.printStackTrace();
         }

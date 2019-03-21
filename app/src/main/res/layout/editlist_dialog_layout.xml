@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
         android:id="@+id/tveditHeader"
         android:layout_width="match_parent"
@@ -43,17 +46,167 @@
     <EditText
         android:id="@+id/editTextEditList"
         android:layout_width="0dp"
-        android:layout_height="350dp"
+        android:layout_height="200dp"
         android:layout_marginEnd="15dp"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:ems="10"
-        android:hint="@string/todolist_listhint"
         android:gravity="top"
+        android:hint="@string/todolist_listhint"
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEditListTitle" />
+    <View
+        android:id="@+id/EditlineNotification"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEditList"/>
+
+    <TextView
+        android:id="@+id/tvEditListNotificationtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Remind me of this list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EditlineNotification" />
+    <Switch
+        android:id="@+id/switchEditlistNotification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="284dp"
+        tools:layout_editor_absoluteY="301dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EditlineNotification" />
+    <TextView
+        android:id="@+id/tvEditListNotificationSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchEditlistNotification" />
+
+    <ImageView
+        android:id="@+id/ivEditSelectDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        app:srcCompat="@drawable/round_date_range_black_24dp"
+        tools:layout_editor_absoluteX="334dp"
+        tools:layout_editor_absoluteY="316dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/switchEditlistNotification" />
+    <TimePicker
+        android:id="@+id/tpEditlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:timePickerMode="spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivEditSelectDate">
+    </TimePicker>
+    <TextView
+        android:id="@+id/tvEditListRepeatTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="Repeat every:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tpEditlist" />
+    <CheckedTextView
+        android:id="@+id/repeat_mon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Mon"
+        app:layout_constraintStart_toEndOf="@+id/repeat_tue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEditListRepeatTitle" />
+    <CheckedTextView
+        android:id="@+id/repeat_tue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Tue"
+        app:layout_constraintStart_toEndOf="@+id/repeat_mon"
+        app:layout_constraintTop_toBottomOf="@+id/tvEditListRepeatTitle" />
+    <CheckedTextView
+        android:id="@+id/repeat_wed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Wed"
+        app:layout_constraintStart_toEndOf="@+id/repeat_tue"
+        app:layout_constraintTop_toBottomOf="@+id/tvEditListRepeatTitle" />
+    <CheckedTextView
+        android:id="@+id/repeat_thu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Thu"
+        app:layout_constraintStart_toEndOf="@+id/repeat_wed"
+        app:layout_constraintTop_toBottomOf="@+id/tvEditListRepeatTitle" />
+    <CheckedTextView
+        android:id="@+id/repeat_fri"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Fri"
+        app:layout_constraintStart_toEndOf="@+id/repeat_thu"
+        app:layout_constraintTop_toBottomOf="@+id/tvEditListRepeatTitle" />
+    <CheckedTextView
+        android:id="@+id/repeat_sat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Sat"
+        app:layout_constraintStart_toEndOf="@+id/repeat_fri"
+        app:layout_constraintTop_toBottomOf="@+id/tvEditListRepeatTitle" />
+
+    <CheckedTextView
+        android:id="@+id/repeat_sun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:checked="False"
+        android:clickable="true"
+        android:focusable="true"
+        android:drawableTop="@drawable/checkmark"
+        android:text="Sun"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/repeat_sat"
+        app:layout_constraintTop_toBottomOf="@+id/tvEditListRepeatTitle" />
 
     <Button
         android:id="@+id/btnEditListSave"
@@ -67,7 +220,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnEditListCancel"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEditList" />
+        app:layout_constraintTop_toBottomOf="@+id/repeat_mon" />
 
     <Button
         android:id="@+id/btnEditListCancel"
@@ -81,6 +234,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnEditListSave"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEditList" />
+        app:layout_constraintTop_toBottomOf="@+id/repeat_mon" />
 
 </android.support.constraint.ConstraintLayout>
+    </ScrollView>

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -63,14 +64,40 @@ public class ReminderFragment extends ListFragment implements AdapterView.OnItem
 
     private void addReminder()
     {
-        Intent i = new Intent(getActivity().getBaseContext(),
-                AddReminderActivity.class);
-
+        Intent i = new Intent(getActivity().getBaseContext(), AddReminderActivity.class);
+        i.putExtra("action", "add");
         getActivity().startActivity(i);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        store = PersistentStore.getInstance(mContext);
+        JSONArray remList = store.getReminderList();
+        ListAdapter = new ReminderListAdapter(mContext, remList, store);
+        if (remList.length()==0){
+            getListView().setVisibility(View.INVISIBLE);
+        } else {
+            getListView().setVisibility(View.VISIBLE);
+        }
+        getListView().setAdapter(ListAdapter);
+    }
+
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Snackbar.make(view, "onItemClick", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Intent intent = new Intent(getActivity().getBaseContext(), AddReminderActivity.class);
+        intent.putExtra("action", "edit");
+        intent.putExtra("index", position);
+
+        getActivity().startActivity(intent);
+
+
     }
 
 }
