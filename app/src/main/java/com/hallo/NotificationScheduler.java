@@ -105,7 +105,7 @@ public class NotificationScheduler {
             builder.setContentText(content);
             builder.setAutoCancel(true);
             builder.setSound(alarmSound);
-            builder.setSmallIcon(R.mipmap.ic_launcher_round);
+            builder.setSmallIcon(R.drawable.app_logo);
             builder.setContentIntent(pendingIntent);
 
         notificationManager.notify(index, builder.build());
@@ -133,7 +133,7 @@ public class NotificationScheduler {
         builder.setContentTitle(title);
         builder.setAutoCancel(true);
         builder.setSound(alarmSound);
-        builder.setSmallIcon(R.mipmap.ic_launcher_round);
+        builder.setSmallIcon(R.drawable.app_logo);
         builder.setContentIntent(pendingIntent);
 
         notificationManager.notify(index, builder.build());

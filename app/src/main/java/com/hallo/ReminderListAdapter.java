@@ -128,7 +128,7 @@ public class ReminderListAdapter extends BaseAdapter {
                         e.printStackTrace();
                     }
                     viewHolder.obj = rem_struct;
-                    store.saveToDoList(mlist);
+                    store.saveReminderList(mlist);
                     notifyDataSetChanged();
                     viewHolder.tvRemItem_Notification_Time.setTextColor(ContextCompat.getColor(mContext, android.R.color.black));
                     setDay(viewHolder.tvMon, viewHolder.selected[0]);
@@ -149,7 +149,7 @@ public class ReminderListAdapter extends BaseAdapter {
                         e.printStackTrace();
                     }
                     viewHolder.obj = rem_struct;
-                    store.saveToDoList(mlist);
+                    store.saveReminderList(mlist);
                     notifyDataSetChanged();
 
                     scheduler.cancelReminder(mContext, NotificationAlarmReceiver.class, viewHolder.position+100);

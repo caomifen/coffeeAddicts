@@ -108,6 +108,8 @@ public class PersistentStore {
     //others/general functions
     public void reset(){
         saveUser("", "0");
+        saveToDoList(new JSONArray());
+        saveReminderList(new JSONArray());
     }
 
     //General read/write logic

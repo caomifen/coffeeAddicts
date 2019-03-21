@@ -10,7 +10,7 @@ import static java.lang.Boolean.getBoolean;
 
 public class ToDoListStruct {
     private String title;
-    private JSONArray list;
+    private JSONArray list = new JSONArray();
     private JSONObject item;
     private NotificationStruct notification;
 
@@ -47,6 +47,7 @@ public class ToDoListStruct {
             }
         } catch (JSONException e) {
             e.printStackTrace();
+            return "No Task";
         }
 
         return Integer.toString(taskDone) + "/" + Integer.toString(list.length()) + " completed";

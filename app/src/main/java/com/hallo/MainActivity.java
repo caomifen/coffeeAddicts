@@ -16,6 +16,8 @@ import android.view.LayoutInflater;
 import android.util.Log;
 import android.view.MenuItem;
 
+import org.json.JSONArray;
+
 import java.util.Locale;
 
 
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         PersistentStore store = PersistentStore.getInstance(mcontext);
-
+        store.saveToDoList(new JSONArray());
         if(store.getPhoneNumber() == ""){
             Intent intent = new Intent(mcontext, SignupActivity.class);
             startActivity(intent);
