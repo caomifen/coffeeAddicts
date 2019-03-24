@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,10 +19,14 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.content.SharedPreferences;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 public class SettingsFragment extends Fragment {
 
@@ -84,6 +89,42 @@ public class SettingsFragment extends Fragment {
                 // TODO Auto-generated method stub
             }
 
+        });
+
+        LinearLayout llyRestore = view.findViewById(R.id.llyrestore);
+        llyRestore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Restore", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
+        LinearLayout llyBackup = view.findViewById(R.id.llybackup);
+        llyBackup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Backup", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
+        LinearLayout llyLogout = view.findViewById(R.id.llylogout);
+        llyLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context mContext = getContext();
+                Snackbar.make(view, "Logout", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                PersistentStore store = PersistentStore.getInstance(mContext);
+                //unregister notification
+                NotificationScheduler scheduler = new NotificationScheduler(mContext);
+                JSONArray reminder = store.getReminderList();
+                for (int i =0; i< reminder.length(); i++){
+                    scheduler.cancelReminder(mContext, MainActivity.class, i+100);
+                }
+                JSONArray todo = store.getToDoList();
+                for (int i =0; i< todo.length(); i++){
+                    scheduler.cancelReminder(mContext, MainActivity.class, i);
+                }
+                store.reset();
+                ((MainActivity)getActivity()).Logout();
+            }
         });
     }
 

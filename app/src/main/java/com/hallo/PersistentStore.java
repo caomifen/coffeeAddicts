@@ -25,7 +25,7 @@ public class PersistentStore {
     private static final String ReminderListStore = "ReminderList.txt";
 
     private static String param_phone_number = "Phone_number";
-    private static String param_remember_me = "Phone_number";
+    private static String param_remember_me = "Remember_me";
 
     private static JSONArray ToDoList;
     private static JSONArray ReminderList;
@@ -218,7 +218,6 @@ public class PersistentStore {
 
     /**
      * Create an empty store file with an empty JSONArray
-     * notify the observer subscribed to this that data had changed
      * @param filename
      */
     public static void createEmptyStoreFile(JSONObject empty_file, String filename){

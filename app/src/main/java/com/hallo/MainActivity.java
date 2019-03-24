@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         PersistentStore store = PersistentStore.getInstance(mcontext);
 
-        if(store.getPhoneNumber() == ""){
+        if(store.getPhoneNumber().equals( "")){
             Intent intent = new Intent(mcontext, SignupActivity.class);
             startActivity(intent);
         } else {
@@ -68,6 +68,12 @@ public class MainActivity extends AppCompatActivity {
                 transaction.commit();
             }
         }
+    }
+
+    public void Logout(){
+        Intent i = new Intent(mcontext, SignupActivity.class);
+        finish();
+        startActivity(i);
     }
 
     protected void displayFragment(Fragment fragment){
