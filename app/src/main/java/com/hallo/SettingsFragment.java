@@ -113,15 +113,15 @@ public class SettingsFragment extends Fragment {
                 Snackbar.make(view, "Logout", Snackbar.LENGTH_LONG).setAction("Action", null).show();
                 PersistentStore store = PersistentStore.getInstance(mContext);
                 //unregister notification
-                NotificationScheduler scheduler = new NotificationScheduler(mContext);
-                JSONArray reminder = store.getReminderList();
+                //NotificationScheduler scheduler = new NotificationScheduler(mContext);
+                /*JSONArray reminder = store.getReminderList();
                 for (int i =0; i< reminder.length(); i++){
-                    scheduler.cancelReminder(mContext, MainActivity.class, i+100);
+                    NotificationScheduler.cancelReminder(mContext, MainActivity.class, i+100);
                 }
                 JSONArray todo = store.getToDoList();
                 for (int i =0; i< todo.length(); i++){
-                    scheduler.cancelReminder(mContext, MainActivity.class, i);
-                }
+                    NotificationScheduler.cancelReminder(mContext, MainActivity.class, i);
+                }*/
                 store.reset();
                 ((MainActivity)getActivity()).Logout();
             }

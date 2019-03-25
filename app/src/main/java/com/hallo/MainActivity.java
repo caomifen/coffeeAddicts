@@ -1,5 +1,7 @@
 package com.hallo;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         PersistentStore store = PersistentStore.getInstance(mcontext);
 
-        if(store.getPhoneNumber().equals( "")){
+        if(store.getPhoneNumber().equals("")){
             Intent intent = new Intent(mcontext, SignupActivity.class);
             startActivity(intent);
         } else {
@@ -74,6 +76,14 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(mcontext, SignupActivity.class);
         finish();
         startActivity(i);
+
+        //Intent mStartActivity = new Intent(MainActivity.this, SignupActivity.class);
+        //int mPendingIntentId = 123456;
+        //PendingIntent mPendingIntent = PendingIntent.getActivity(MainActivity.this, mPendingIntentId, mStartActivity,
+        //        PendingIntent.FLAG_CANCEL_CURRENT);
+        //AlarmManager mgr = (AlarmManager) MainActivity.this.getSystemService(Context.ALARM_SERVICE);
+        //mgr.set(AlarmManager.RTC, System.currentTimeMillis() + 100, mPendingIntent);
+        //System.exit(0);
     }
 
     protected void displayFragment(Fragment fragment){
@@ -88,10 +98,10 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    selectedFragment = HomeFragment.newInstance();
-                    displayFragment(selectedFragment);
-                    return true;
+                //case R.id.navigation_home:
+                //    selectedFragment = HomeFragment.newInstance();
+                //    displayFragment(selectedFragment);
+                //    return true;
                 case R.id.navigation_reminder:
                     selectedFragment = ReminderFragment.newInstance();
                     displayFragment(selectedFragment);

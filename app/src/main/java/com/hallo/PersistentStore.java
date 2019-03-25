@@ -58,6 +58,7 @@ public class PersistentStore {
     //User related function
     public void saveUser(String PhoneNumber, String remember) {
         try {
+            User = new JSONObject();
             User.put(param_phone_number, PhoneNumber);
             User.put(param_remember_me, remember);
             SaveStoreFile(User, UserStore);
@@ -147,6 +148,9 @@ public class PersistentStore {
             byte[] bytes = new byte[fis.available()];
             while ((numRead = fis.read(bytes)) >= 0) {
                 total.append(new String(bytes, 0, numRead));
+            }
+            if(total.toString().equals("0")){
+                return new JSONObject();
             }
             return new JSONObject(total.toString());
 
