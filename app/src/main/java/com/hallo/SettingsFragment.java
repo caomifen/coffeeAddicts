@@ -105,6 +105,14 @@ public class SettingsFragment extends Fragment {
                 Snackbar.make(view, "Backup", Snackbar.LENGTH_LONG).setAction("Action", null).show();
             }
         });
+
+        LinearLayout llyFeedback = view.findViewById(R.id.llyfeedback);
+        llyBackup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Feedback", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            }
+        });
         LinearLayout llyLogout = view.findViewById(R.id.llylogout);
         llyLogout.setOnClickListener(new View.OnClickListener() {
             @Override
